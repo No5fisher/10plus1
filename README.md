@@ -1,6 +1,7 @@
-# Fisher Company Analysis
+# #5 Fisher Company Analysis
+# 5号渔夫 e.gonghui@gmail.com 
 
-A platform-neutral AI skill for listed-company investment research, valuation and investment-thesis monitoring.
+A platform-neutral AI skill for listed-company research, valuation and investment-thesis monitoring.
 
 Current version: **v1.1.0**
 
