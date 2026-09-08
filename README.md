@@ -18,55 +18,69 @@ Fisher Company Analysis turns a company question into an evidence-based investme
 - Reverse DCF / implied-expectations analysis
 - 3-5 key monitoring variables
 - Bear Case and Kill Criteria
-- investment-bank-style PDF/DOCX report structure
+- investment-bank-style report structure, with a page-1 executive dashboard
 
 ## Repository structure
 
 ```text
-fisher-company-analysis/
+10plus1/
 ├── SKILL.md
 ├── README.md
 ├── VERSION
 ├── CHANGELOG.md
+├── install.sh
 ├── references/
 │   └── SBC-RULES.md
 ├── templates/
-│   ├── report-template.md
-│   ├── 投行风格公司投资研究报告模板.docx
-│   └── 投行风格公司投资研究报告模板.pdf
-├── docs/
-│   └── INSTALL.md
-└── dist/
-    └── Fisher-Company-Analysis-v1.1.zip
+│   └── report-template.md
+└── docs/
+    ├── INSTALL.md
+    └── MAINTENANCE.md
 ```
+
+The canonical report template is Markdown so the skill remains portable across ChatGPT, Claude, Gemini, DeepSeek, Codex and other AI runtimes. A runtime with DOCX/PDF generation can render the same specification into an investment-bank-style document.
 
 ## Install
 
-### Cross-runtime Agent Skills
+### One-command install on macOS / Linux
 
 ```bash
 git clone https://github.com/No5fisher/10plus1.git
-mkdir -p ~/.agents/skills/fisher-company-analysis
-cp -R 10plus1/* ~/.agents/skills/fisher-company-analysis/
+cd 10plus1
+bash install.sh
+```
+
+Default cross-runtime location:
+
+```text
+~/.agents/skills/fisher-company-analysis/
 ```
 
 ### Claude Code
 
 ```bash
-mkdir -p ~/.claude/skills/fisher-company-analysis
-cp -R 10plus1/* ~/.claude/skills/fisher-company-analysis/
+bash install.sh --claude
 ```
 
-### Other AI platforms
+### Hosted AI products
 
-If the platform does not support Agent Skills directly:
+If the platform does not support local Agent Skills directly:
 
 1. Add `SKILL.md` as project/system instructions.
 2. Add `references/SBC-RULES.md` as a reference file.
 3. Add `templates/report-template.md` as the canonical output structure.
-4. Provide the DOCX/PDF template when the platform can use visual document references.
 
-See [docs/INSTALL.md](docs/INSTALL.md) for more details.
+See [docs/INSTALL.md](docs/INSTALL.md) for details.
+
+## Download without Git
+
+GitHub automatically provides a source ZIP for the current `main` branch:
+
+```text
+https://github.com/No5fisher/10plus1/archive/refs/heads/main.zip
+```
+
+This avoids maintaining a stale duplicate ZIP inside the repository.
 
 ## Example prompts
 
@@ -80,16 +94,16 @@ For material stock-based compensation, the skill requires both **Reported FCF** 
 
 ## Updating
 
-For your own installations:
+For an installed copy:
 
 ```bash
 cd 10plus1
 git pull
-cp -R . ~/.agents/skills/fisher-company-analysis/
+bash install.sh
 ```
 
-For public changes, use normal GitHub issues / branches / pull requests and update `CHANGELOG.md` plus `VERSION` for releases.
+For methodology changes, use normal GitHub issues / branches / pull requests. Update `CHANGELOG.md` and `VERSION` whenever behavior changes. See [docs/MAINTENANCE.md](docs/MAINTENANCE.md).
 
 ## License
 
-No explicit open-source license has been added yet. Add a `LICENSE` file before inviting unrestricted redistribution or modification by third parties.
+No explicit open-source license has been added yet. The repository is public and downloadable, but a formal redistribution/modification license should be selected before inviting third-party forks or redistribution.
