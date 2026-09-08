@@ -12,8 +12,8 @@ Install from GitHub:
 
 ```bash
 git clone https://github.com/No5fisher/10plus1.git
-mkdir -p ~/.agents/skills/fisher-company-analysis
-cp -R 10plus1/* ~/.agents/skills/fisher-company-analysis/
+cd 10plus1
+bash install.sh
 ```
 
 Update later:
@@ -21,18 +21,24 @@ Update later:
 ```bash
 cd 10plus1
 git pull
-cp -R . ~/.agents/skills/fisher-company-analysis/
+bash install.sh
 ```
 
 ## 2. Claude Code
 
-Claude Code can use:
+Install to Claude Code's skill directory:
 
 ```bash
-~/.claude/skills/fisher-company-analysis/
+git clone https://github.com/No5fisher/10plus1.git
+cd 10plus1
+bash install.sh --claude
 ```
 
-Copy the same repository contents there.
+Target:
+
+```text
+~/.claude/skills/fisher-company-analysis/
+```
 
 ## 3. ChatGPT / Gemini / DeepSeek / other hosted AI products
 
@@ -40,14 +46,23 @@ When native local skills are unavailable, use the repository as a portable promp
 
 - `SKILL.md` -> project instructions / system instructions
 - `references/SBC-RULES.md` -> supporting knowledge
-- `templates/report-template.md` -> canonical report structure
-- DOCX/PDF templates -> visual/output reference when supported
+- `templates/report-template.md` -> canonical report/output specification
 
-The skill intentionally does not depend on vendor-specific tool names.
+A platform with document-generation capability can render the Markdown template into PDF/DOCX. The methodology intentionally does not depend on vendor-specific tool names.
 
-## 4. Version pinning
+## 4. Download without Git
 
-For reproducible research, install a tagged release instead of the moving `main` branch once releases/tags are created.
+GitHub automatically packages the current `main` branch as a ZIP:
+
+```text
+https://github.com/No5fisher/10plus1/archive/refs/heads/main.zip
+```
+
+After extracting, add `SKILL.md`, `references/SBC-RULES.md`, and `templates/report-template.md` to the target AI project when local skill installation is not supported.
+
+## 5. Version pinning
+
+For reproducible research, use a tagged version once tags/releases are published instead of following the moving `main` branch.
 
 Recommended tag format:
 
@@ -57,12 +72,13 @@ v1.2.0
 v2.0.0
 ```
 
-## 5. Maintenance workflow
+## 6. Maintenance workflow
+
+See `docs/MAINTENANCE.md`. In brief:
 
 1. Open an Issue describing the research-method problem.
-2. Create a branch such as `fix/sbc-dilution-rule`.
-3. Update the relevant rule/template.
-4. Test on at least one real public company.
-5. Update `CHANGELOG.md` and `VERSION`.
+2. Reproduce it on a real listed company.
+3. Update the minimum necessary rule/template.
+4. Re-test the methodology.
+5. Update `CHANGELOG.md` and `VERSION` when behavior changes.
 6. Merge to `main`.
-7. Create a GitHub Release and attach the distribution ZIP.
