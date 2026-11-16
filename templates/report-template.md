@@ -170,6 +170,44 @@
 ### 催化剂
 未来 3-5 个财报、产品、监管、资本配置或产业事件。
 
+## Research data appendix — retained with every report (not an additional numbered page)
+
+The visible report remains 8 pages. Save this appendix as a companion data file or workbook so the report can be reproduced.
+
+### A. Evidence ledger
+| Metric | Value | Unit | Period | Reported/adjusted | Source + page/URL | Confidence A-D | Notes |
+|---|---:|---|---|---|---|---|---|
+
+### B. Standardized 5-10 year history
+| FY | Revenue | Gross profit | EBIT | Net income | OCF | Cash capex | FCF | SBC | Diluted shares | Receivables | Inventory | Payables | Invested capital |
+|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|
+
+### C. Reconciliation and model assumptions
+- Period alignment (FY / TTM / YTD) and reconciliation:
+- Currency and unit:
+- Reported vs adjusted measures:
+- Invested-capital definition:
+- Maintenance vs growth capex treatment:
+- SBC treatment:
+- Net share-count assumptions:
+- Dividend timing, payout and reinvestment assumptions:
+- Terminal multiple and basis:
+- Model version and calculation output file:
+
+### D. Data confidence and unresolved items
+| Key driver | Grade A-D | What is missing | How to verify |
+|---|---|---|---|
+
+### E. Model validation
+- Does revenue growth reconcile with volume/price/mix or customer metrics?
+- Does EBIT growth reconcile with revenue, margins and segment mix?
+- Does EPS growth reconcile with net income and diluted share count?
+- Does FCF reconcile with OCF, capex and working capital?
+- Does ROIC use a defensible and consistent invested-capital definition?
+- Does the 10-year return bridge avoid double-counting dividends, buybacks, SBC and valuation changes?
+- Can another analyst reproduce the reported ratios and scenario outputs?
+
+---
 ## 第 8 页｜投资结论
 - 业务质量
 - 基本面方向
