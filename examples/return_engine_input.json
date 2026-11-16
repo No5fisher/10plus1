@@ -1,0 +1,74 @@
+{
+  "company": "Illustrative company — replace with verified data",
+  "as_of": "YYYY-MM-DD",
+  "currency_unit": "USD millions except per-share values",
+  "years": 10,
+  "hurdle_rate": 0.13,
+  "entry_price": 100,
+  "normalized_eps": 5,
+  "historical_financials": [
+    {
+      "period": "FY2024",
+      "days": 365,
+      "revenue": 1000,
+      "cogs": 600,
+      "gross_profit": 400,
+      "ebit": 120,
+      "net_income": 90,
+      "operating_cash_flow": 110,
+      "cash_capex": 30,
+      "sbc": 5,
+      "receivables_begin": 80,
+      "receivables_end": 90,
+      "inventory_begin": 100,
+      "inventory_end": 110,
+      "payables_begin": 75,
+      "payables_end": 85,
+      "equity_begin": 500,
+      "equity_end": 540,
+      "average_invested_capital": 650,
+      "normalized_tax_rate": 0.25
+    }
+  ],
+  "scenarios": [
+    {
+      "name": "Bear",
+      "revenue_cagr": 0.04,
+      "starting_operating_margin": 0.12,
+      "terminal_operating_margin": 0.11,
+      "tax_rate": 0.25,
+      "diluted_share_count_cagr": 0.01,
+      "other_eps_cagr": -0.01,
+      "terminal_pe": 16,
+      "payout_ratio": 0.25,
+      "incremental_roic": 0.12,
+      "reinvestment_rate": 0.35
+    },
+    {
+      "name": "Base",
+      "revenue_cagr": 0.08,
+      "starting_operating_margin": 0.12,
+      "terminal_operating_margin": 0.14,
+      "tax_rate": 0.25,
+      "diluted_share_count_cagr": 0,
+      "other_eps_cagr": 0,
+      "terminal_pe": 20,
+      "payout_ratio": 0.35,
+      "incremental_roic": 0.18,
+      "reinvestment_rate": 0.45
+    },
+    {
+      "name": "Bull",
+      "revenue_cagr": 0.11,
+      "starting_operating_margin": 0.12,
+      "terminal_operating_margin": 0.15,
+      "tax_rate": 0.25,
+      "diluted_share_count_cagr": -0.01,
+      "other_eps_cagr": 0.01,
+      "terminal_pe": 24,
+      "payout_ratio": 0.4,
+      "incremental_roic": 0.22,
+      "reinvestment_rate": 0.55
+    }
+  ]
+}
