@@ -13,7 +13,7 @@ mkdir -p "$TARGET_ROOT"
 rm -rf "$TARGET"
 mkdir -p "$TARGET"
 
-for item in SKILL.md README.md VERSION CHANGELOG.md references templates docs; do
+for item in SKILL.md README.md VERSION CHANGELOG.md references templates docs tools examples; do
   if [[ -e "$SOURCE_DIR/$item" ]]; then
     cp -R "$SOURCE_DIR/$item" "$TARGET/"
   fi
