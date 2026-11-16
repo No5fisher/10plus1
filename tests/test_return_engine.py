@@ -48,6 +48,13 @@ class ReturnEngineTests(unittest.TestCase):
         d=self.base(); d["entry_price"]=0
         with self.assertRaises(ValueError): calculate(d)
 
+
+    def test_negative_equity_suppresses_roe(self):
+        rows=[{"period":"FY","net_income":10,"equity_begin":-20,"equity_end":-10}]
+        x=financial_quality(rows)[0]
+        self.assertIsNone(x["roe"])
+        self.assertTrue(any("ROE suppressed" in w for w in x["warnings"]))
+
     def test_irr(self):
         self.assertAlmostEqual(irr([-100,110]),0.1,places=7)
 
