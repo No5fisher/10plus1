@@ -1,48 +1,56 @@
 # Maintenance & Release Guide
 
-Fisher Company Analysis is intended to improve through real-company testing rather than prompt accumulation.
+Fisher Company Analysis improves through real-company tests, reproducible calculations and explicit failure analysis rather than prompt accumulation.
 
 ## Change workflow
 
-1. Open an Issue describing the research failure, ambiguity or missing rule.
-2. Reproduce the problem on at least one listed company.
-3. Change the minimum necessary rule, reference or report-template section.
-4. Re-run the company test and compare the output before/after.
-5. Update `CHANGELOG.md` and increment `VERSION` when behavior changes.
-6. Merge to `main` only after the revised rule produces a better, auditable result.
+1. Record the research failure or ambiguity and the company archetype where it appeared.
+2. Preserve source filings, normalized input data and prior output.
+3. Reproduce the issue with the calculator/tests where possible.
+4. Change the minimum necessary methodology, code, reference or report-template rule.
+5. Run `python -m unittest discover -s tests -v`.
+6. Re-run the affected company and at least one contrasting business archetype.
+7. Compare before/after results; explain whether the change improves decision usefulness or merely changes the answer.
+8. Update CHANGELOG.md and VERSION.
 
 ## Versioning
 
-Use semantic versioning:
+- PATCH: wording, examples or bug fix without intended methodology change.
+- MINOR: new analytical rule, calculator capability or reporting requirement.
+- MAJOR: incompatible methodology, input schema or report-structure change.
 
-- PATCH: wording, examples, small fixes that do not materially change research behavior.
-- MINOR: new analysis rule, valuation lens, report section or monitoring requirement.
-- MAJOR: incompatible methodology or report-structure change.
+## Required validation archetypes
 
-Examples: `1.1.1`, `1.2.0`, `2.0.0`.
-
-## Recommended tests before release
-
-At minimum, test three different company archetypes when a major methodology rule changes:
-
+Before a material methodology release, test:
 - high-growth / high-SBC software or internet company
 - mature high-quality compounder
 - cyclical, capital-intensive or balance-sheet-sensitive company
+- where relevant, financial company or distributor with unusual working capital
 
-Check that the skill does not mechanically force the same metrics or valuation model on every business.
+Do not force identical metrics or valuation models across archetypes.
+
+## Calculator validation
+
+- Run unit tests and preserve test output.
+- Verify 13% over 10 years equals a 3.3946x future-value factor.
+- Check flat earnings/unchanged multiple/zero dividend gives zero return.
+- Check dilution reduces EPS, margin expansion increases EPS, and dividends affect total return.
+- Check negative/zero equity or invested capital does not produce misleading ratios.
+- Reconcile calculator outputs with an independent spreadsheet or hand calculation for material investment decisions.
+- Never treat the illustrative example as company data.
 
 ## Release checklist
 
-- `SKILL.md` is internally consistent.
-- All referenced files exist.
-- Current-data rules require explicit dates/periods.
-- SBC materiality gate still works for software/platform companies.
-- Bear / Base / Bull assumptions are explicit.
-- Kill Criteria are observable, not vague risks.
-- Report template still starts with the executive dashboard.
-- `VERSION` and `CHANGELOG.md` match.
-- Installation instructions have been tested from a clean folder.
+- SKILL.md references files that exist.
+- Input schema and calculator behavior agree.
+- Source periods, units and reported/adjusted status are explicit.
+- Missing data is not silently treated as zero.
+- SBC gate still works.
+- Bear/Base/Bull assumptions and Kill Criteria are explicit.
+- Eight numbered report pages remain in the original order.
+- Data appendix permits reproduction.
+- VERSION and CHANGELOG match.
 
 ## Distribution
 
-The GitHub repository is the source of truth. Users can clone `main` or download GitHub's automatically generated source ZIP. When tags/releases are added, users who need reproducibility should pin a version rather than follow `main`.
+GitHub is the source of truth. Clone or download the source ZIP. For reproducibility, pin a release/tag or commit rather than following main.
