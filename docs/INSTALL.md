@@ -46,6 +46,9 @@ When native local skills are unavailable, use the repository as a portable promp
 
 - `SKILL.md` -> project instructions / system instructions
 - `references/SBC-RULES.md` -> supporting knowledge
+- `references/FINANCIAL-QUALITY-RETURN-ENGINE.md` and `references/DATA-STANDARDIZATION.md` -> financial analysis and data contract
+- `tools/return_engine.py` plus `examples/` -> reproducible 10-year return and financial-quality calculator (requires Python 3.10+, no third-party packages)
+- `tests/` -> calculator unit tests
 - `templates/report-template.md` -> canonical report/output specification
 
 A platform with document-generation capability can render the Markdown template into PDF/DOCX. The methodology intentionally does not depend on vendor-specific tool names.
