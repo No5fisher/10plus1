@@ -2,6 +2,17 @@
 
 All notable changes to Fisher Company Analysis are documented here.
 
+## [1.2.0] - 2026-11-16
+
+### Added
+- Financial Quality & 10-Year Return Engine: lifecycle classification, growth vs mature scorecards, earnings/asset quality, working-capital and cash-conversion analysis, ROIC definitions and sector-specific overrides.
+- Explicit 10-year per-share value bridge and 13% hurdle test, including dividends, dilution, buybacks, entry discount and terminal multiple.
+- Mandatory reporting of cash-flow drivers and asset-quality checks; added distributor and consumer-staples analysis overrides.
+
+### Changed
+- Preserved the canonical 8-page report sequence while adding lifecycle, financial-quality and 10-year return panels.
+- Replaced one-size-fits-all ROE/ROIC and cash-flow interpretation with business-model-specific definitions and caveats.
+
 ## [1.1.0] - 2026-08-28
 
 ### Added
