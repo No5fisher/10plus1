@@ -19,6 +19,8 @@ For a full equity-research report, use `templates/report-template.md` as the can
 6. Prefer per-share economics and cash generation over headline growth.
 7. Never fill data gaps silently. Mark unavailable, estimated, inferred or stale information.
 8. Treat SBC/dilution as an owner-economics issue. Read `references/SBC-RULES.md` whenever SBC may be material.
+9. Classify lifecycle before choosing metrics: growth, scaling/transition, mature cash-generation, or cyclical/restructuring. Never force one scorecard onto all companies.
+10. Apply `references/FINANCIAL-QUALITY-RETURN-ENGINE.md` to all full reports. It governs lifecycle-specific financial quality, asset quality, cash conversion, ROIC and the 10-year return hurdle.
 
 ## Evidence Standard
 Use, in descending priority when available:
@@ -53,89 +55,48 @@ Complete all ten boxes before forming a recommendation:
 10. Kill criteria - observable facts that force thesis re-evaluation
 
 ### 3. Industry and System Analysis
-Map upstream suppliers -> company -> customers/downstream. Add competitors, complements, substitutes, regulators and capital providers where material.
-
-Identify:
-- industry structure and profit pool
-- bargaining power and control of scarce resources
-- structural growth vs cyclical growth
-- technology/regulatory changes that could alter the system
-- company position: challenger, enhancer, platform, incumbent, niche or commodity player
+Map upstream suppliers -> company -> customers/downstream. Add competitors, complements, substitutes, regulators and capital providers where material. Identify industry structure, profit pool, bargaining power, structural vs cyclical growth, regulatory/technology shifts and company position.
 
 ### 4. Competitive Advantage
-Identify only evidence-backed advantages:
-- technology/know-how
-- cost advantage
-- network effects
-- switching costs
-- brand/trust
-- distribution/channel
-- data/scale/ecosystem
-- regulation/license
+Identify only evidence-backed advantages: technology/know-how, cost, network effects, switching costs, brand/trust, distribution, data/scale/ecosystem, regulation/license. State whether the moat is widening, stable or narrowing and the metric that proves it.
 
-Then answer: Is the moat widening, stable or narrowing? What metric proves it?
+### 5. Financial Quality — Mandatory Lifecycle Split
+Read `references/FINANCIAL-QUALITY-RETURN-ENGINE.md`. Classify lifecycle before selecting KPIs.
 
-### 5. Financial Quality
-Use at least 5 years when available; 10 years for mature companies when useful.
+**Growth / scaling**: validate product/customer demand, organic growth, retention, unit economics, margin trajectory, incremental ROIC, runway, financing needs and diluted per-share economics. Do not reject a young business solely for low current ROE, but do not accept TAM as evidence of future profits.
 
-Minimum metrics:
-- revenue growth and organic growth where available
-- gross and operating margin
-- free cash flow and FCF margin
-- ROIC (or best available proxy) and ROE where relevant
-- net debt / liquidity / interest coverage
-- share count and dilution; stock-based compensation where material
-- per-share FCF/EPS/value growth
+**Mature**: use 5-10 years where possible to test earnings quality, asset quality, cash conversion, ROIC/ROCE, maintenance investment, leverage, capital allocation and per-share value creation.
 
-Look for divergence: earnings vs cash flow, revenue vs receivables, buybacks vs dilution, growth vs capital intensity.
+**Cyclical / restructuring**: normalize across a cycle; do not extrapolate peak/trough margins or working capital.
+
+Minimum financial outputs:
+- Revenue growth and organic growth where available
+- Gross and GAAP operating margin
+- OCF / net income, reported FCF, FCF margin and FCF conversion
+- Receivables, inventory, payables and cash conversion cycle where relevant
+- ROIC / ROCE definition, ROE context and incremental ROIC for growth
+- Net debt, liquidity, maturity and interest coverage
+- Share count, SBC, buybacks, dividends and per-share FCF/EPS growth
+
+Explain working-capital effects and distinguish maintenance from growth capex when evidence permits. Do not call a one-period cash-flow spike sustainable without reconciling its source.
 
 #### Mandatory SBC Gate
 Before valuation, run the materiality test in `references/SBC-RULES.md`.
 
-If SBC is material, the analysis MUST:
-- show Reported FCF and Economic FCF
-- quantify SBC / revenue and SBC / reported FCF
-- examine diluted share-count change and gross/net dilution
-- test whether buybacks create net share reduction or merely offset SBC issuance
-- assess whether buybacks are funded by FCF, cash or debt
-- use at least two valuation lenses: reported-FCF and SBC-adjusted owner economics
-- include SBC as a quarterly monitoring variable
-
-Default conservative cross-check: `Economic FCF = Reported FCF - SBC`.
-Do not claim this is the only theoretically valid treatment; explain alternative company-specific treatment when used.
+If SBC is material, show Reported FCF and Economic FCF; quantify SBC/revenue and SBC/reported FCF; examine gross/net dilution and buybacks; assess funding source; use at least two valuation lenses. Default conservative cross-check: `Economic FCF = Reported FCF - SBC`. Explain company-specific alternatives and retain the simple cross-check.
 
 ### 6. Management and Capital Allocation
-Evaluate:
-- strategic consistency and execution record
-- candor about failures and guidance quality
-- insider incentives and ownership
-- reinvestment returns
-- M&A discipline
-- buyback/dividend/debt decisions
-- whether management optimizes per-share value or empire size
-
-For buybacks, never equate repurchase dollars with shareholder friendliness. Verify net diluted-share reduction, repurchase valuation and balance-sheet impact.
+Evaluate strategic consistency, execution, candor, guidance, incentives, reinvestment returns, M&A discipline, buybacks, dividends and debt. Verify net diluted-share reduction and repurchase valuation. Classify buybacks as value-accretive, dilution-offsetting or value-destructive/risky.
 
 ### 7. Key Variables and Monitoring
-Reduce the thesis to 3-5 measurable variables. Each variable must have:
-- why it matters
-- current value/status
-- direction needed for thesis to strengthen
-- warning threshold
-- update frequency
+Reduce the thesis to 3-5 measurable variables. For each include why it matters, current value/status, direction needed, warning threshold and update frequency.
 
-### 8. Valuation
-Do not rely on a single method. Use methods appropriate to the company:
-- historical multiples
-- peer multiples adjusted for growth/quality
-- FCF yield / owner earnings
-- DCF or scenario DCF
-- Reverse DCF: what growth/margin assumptions are embedded in today's price?
-- sum-of-the-parts when segments require it
+### 8. Valuation — Include 10-Year Return Engine
+Use methods appropriate to the company: historical/peer multiples, FCF yield/owner earnings, DCF, Reverse DCF and sum-of-the-parts when relevant. Always produce Bear / Base / Bull with explicit assumptions.
 
-Always produce Bear / Base / Bull scenarios with explicit assumptions. Show expected return/range when enough data exists. If inputs are too uncertain, state that valuation confidence is low rather than inventing precision.
+Run a 10-year per-share value bridge. At a 13% hurdle, the required 10-year value factor is 3.3946x. With unchanged valuation and no dividends, per-share intrinsic value must compound at 13%; with dividends, entry discount, dilution or multiple change, model each explicitly. Do not add dividend yield to EPS growth as an exact identity. Show assumptions and confidence; do not manufacture precision.
 
-If SBC is material, Reported FCF must not be the only DCF/owner-earnings base. Prefer Economic FCF as the conservative base case and show how the conclusion changes under the reported-FCF lens.
+If SBC is material, use both reported-FCF and Economic-FCF valuation views, preferring the conservative owner-economics base unless a well-supported alternative is explained.
 
 ### 9. Decision
 Use one conclusion label:
@@ -145,51 +106,29 @@ Use one conclusion label:
 - TACTICAL/CYCLICAL ONLY
 - AVOID
 
-Include:
-- thesis in 3 bullets maximum
-- what the market may be missing
-- main variant perception
-- valuation/risk balance
-- suitable investor/time horizon
-
-Do not present the label as personalized financial advice. Position sizing depends on the investor's objectives, diversification, tax situation and risk tolerance.
+Include thesis (max 3 bullets), variant perception, valuation/risk balance and suitable investor/time horizon. This is not personalized financial advice.
 
 ### 10. Falsification and Review
-Provide:
-- Bear case: minimum 3 credible failure paths
-- Kill Criteria: 3-5 observable conditions
-- next catalysts: 3-5 events/data releases
-- quarterly monitoring checklist
+Provide at least 3 credible bear paths, 3-5 observable Kill Criteria, 3-5 catalysts and a quarterly monitoring checklist.
 
-A thesis without falsification criteria is incomplete.
-
-## Final Report Format - Investment-Bank Style
-Use `templates/report-template.md` as the canonical content template. Default to 8 concise pages. Page 1 must be an executive dashboard with investment snapshot, KPIs, valuation range, key variables, risks and confidence.
-
-When the runtime supports document generation, render the template into PDF/DOCX while preserving its information hierarchy. Do not make the methodology depend on a particular document tool.
+## Final Report Format — Investment-Bank Style
+Use `templates/report-template.md` as canonical content structure. Default to 8 concise pages. Page 1 remains an executive dashboard with investment snapshot, KPIs, valuation range, key variables, risks and confidence. Keep the 8-page order unchanged.
 
 ## Writing Standard
-- Lead with conclusions, then evidence.
-- Use short paragraphs, tables and charts; avoid narrative padding.
-- Every table must answer a decision question.
-- Distinguish reported data from analyst calculations.
-- Use exact dates/periods for current metrics.
-- Avoid false precision and promotional language.
-- State uncertainty explicitly.
-- For material SBC companies, never describe valuation as “cheap on FCF” without also showing the SBC-adjusted owner-economics view.
+Lead with conclusions, then evidence. Use short paragraphs, decision-useful tables and charts. Date every time-sensitive metric. Separate FACT / ESTIMATE / INFERENCE / JUDGMENT. Avoid false precision. Never call a high-SBC company cheap on reported FCF alone.
 
 ## Common Failure Modes
-- Starting from PE instead of business quality -> analyze business first.
-- Treating TAM as revenue opportunity -> test adoption, competition and economics.
-- Calling technology a moat without customer evidence -> show retention, pricing, share or cost proof.
-- Confusing company growth with per-share value -> inspect dilution and FCF per share.
-- Treating SBC as free because it is non-cash -> run the mandatory SBC gate.
-- Praising buybacks while share count does not fall -> classify them as dilution-offsetting.
-- Using reported FCF alone for high-SBC software companies -> show Economic FCF cross-check.
-- Listing 20 risks without prioritization -> identify 3-5 thesis-breaking risks.
-- Forecasting one precise future -> use scenarios and probabilities.
-- Producing a recommendation without kill criteria -> incomplete analysis.
-- Using stale market data as current -> date every time-sensitive metric.
+- Starting from PE instead of business quality.
+- Treating TAM as revenue opportunity.
+- Calling technology a moat without customer evidence.
+- Confusing company growth with per-share value.
+- Treating SBC as free because it is non-cash.
+- Praising buybacks while diluted shares do not fall.
+- Using reported FCF alone for high-SBC companies.
+- Treating working-capital release or supplier-payment timing as recurring cash earnings.
+- Using ROE when negative/small equity or leverage makes it meaningless.
+- Applying industrial-company FCF/ROIC formulas mechanically to banks, insurers or REITs.
+- Forecasting a single precise future or issuing a rating without Kill Criteria.
 
 ## Portable Execution Notes
-This skill is platform-neutral. Use whatever browsing, file-reading, spreadsheet, coding, charting or document-generation capabilities the current AI platform provides. If a capability is unavailable, do not simulate it: state the limitation, continue with available evidence, and list the missing data needed to complete the analysis.
+This skill is platform-neutral. Use available browsing, file-reading, spreadsheet, coding and document-generation tools. If unavailable, state the limitation and list missing data; do not simulate it.
