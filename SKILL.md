@@ -130,5 +130,21 @@ Lead with conclusions, then evidence. Use short paragraphs, decision-useful tabl
 - Applying industrial-company FCF/ROIC formulas mechanically to banks, insurers or REITs.
 - Forecasting a single precise future or issuing a rating without Kill Criteria.
 
+
+
+## Data Standardization and Reproducible Calculation
+For any full report, apply `references/DATA-STANDARDIZATION.md` before calculating ratios. Maintain an evidence ledger for every material input: source, period, unit, reported/adjusted status and confidence grade. Do not mix FY, YTD, TTM or quarterly values without reconciliation.
+
+Use `tools/return_engine.py` when a reproducible scenario calculation is needed. The calculator accepts standardized JSON inputs, produces machine-readable JSON or Markdown, and calculates historical quality ratios plus Bear/Base/Bull ten-year paths. Example input: `examples/return_engine_input.json`. Run:
+
+```bash
+python tools/return_engine.py examples/return_engine_input.json --format markdown
+python -m unittest discover -s tests -v
+```
+
+The calculator is deterministic and does not fetch data. It must never be populated with invented values. Its EPS bridge is a transparent scenario model: revenue CAGR × operating-margin change × other EPS effects ÷ diluted-share growth. It does not independently forecast the income statement. ROIC × reinvestment rate is a cross-check, not a guaranteed growth identity. For material SBC, follow `references/SBC-RULES.md`; use Economic FCF cross-checks and do not mistake the calculator's simple FCF-minus-SBC figure for a universal owner-earnings definition.
+
+For every company, store the standardized source-data file, scenario assumptions, calculator output and final report together. A report must distinguish source facts from model assumptions and show confidence grades for key inputs.
+
 ## Portable Execution Notes
 This skill is platform-neutral. Use available browsing, file-reading, spreadsheet, coding and document-generation tools. If unavailable, state the limitation and list missing data; do not simulate it.
