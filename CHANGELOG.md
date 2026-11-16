@@ -2,6 +2,21 @@
 
 All notable changes to Fisher Company Analysis are documented here.
 
+## [1.3.0] - 2026-11-16
+
+### Added
+- Reproducible Python calculator for financial-quality ratios and 10-year return scenarios, with JSON and Markdown outputs.
+- Bear/Base/Bull scenario paths including revenue growth, operating-margin transition, diluted-share growth, other EPS effects, payout ratio, terminal P/E and dividend reinvestment.
+- Historical calculations for gross/operating/net margins, OCF/net income, FCF, FCF margin/conversion, SBC-adjusted FCF cross-check, DSO/DIO/DPO/CCC, ROIC and ROE.
+- Data standardization contract, evidence ledger, period alignment rules, A-D confidence grading and quality-control flags.
+- Automated unit tests and an illustrative JSON input example.
+- Companion data/reproducibility appendix while retaining the canonical 8 numbered report pages.
+
+### Changed
+- Skill workflow now requires source-data traceability and calculator assumptions/output to be retained with each research package.
+- Clarified that ROIC × reinvestment rate is a consistency check, not a guaranteed equation for revenue or EPS growth.
+- Clarified that the calculator is deterministic, does not fetch data and must not be populated with invented assumptions.
+
 ## [1.2.0] - 2026-11-16
 
 ### Added
