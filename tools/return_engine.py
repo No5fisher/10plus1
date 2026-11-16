@@ -68,7 +68,6 @@ def run_scenario(base: dict[str, Any], s: dict[str, Any]) -> dict[str, Any]:
     revenue_cagr = num(s["revenue_cagr"], f"{name}.revenue_cagr")
     margin0 = num(s["starting_operating_margin"], f"{name}.starting_operating_margin")
     marginN = num(s["terminal_operating_margin"], f"{name}.terminal_operating_margin")
-    tax = num(s.get("tax_rate", 0.25), f"{name}.tax_rate")
     share_cagr = num(s.get("diluted_share_count_cagr", 0), f"{name}.diluted_share_count_cagr")
     other_eps_cagr = num(s.get("other_eps_cagr", 0), f"{name}.other_eps_cagr")
     terminal_pe = num(s["terminal_pe"], f"{name}.terminal_pe")
@@ -78,8 +77,8 @@ def run_scenario(base: dict[str, Any], s: dict[str, Any]) -> dict[str, Any]:
 
     if margin0 <= 0 or marginN <= 0 or terminal_pe <= 0:
         raise ValueError(f"{name}: margins and terminal_pe must be positive")
-    if not 0 <= tax < 1 or not 0 <= payout <= 1:
-        raise ValueError(f"{name}: tax_rate and payout_ratio must be in [0,1]")
+    if not 0 <= payout <= 1:
+        raise ValueError(f"{name}: payout_ratio must be in [0,1]")
     if share_cagr <= -1 or other_eps_cagr <= -1 or revenue_cagr <= -1:
         raise ValueError(f"{name}: growth rates must be greater than -100%")
 
@@ -159,7 +158,7 @@ def financial_quality(rows: list[dict[str, Any]]) -> list[dict[str, Any]]:
         nopat = ebit * (1 - tax) if ebit is not None and tax is not None else None
         roic = nopat / invested if nopat is not None and invested is not None and invested > 0 else None
         equity_avg, equity_basis = balance("equity_begin", "equity_end", "equity")
-        roe = ni / equity_avg if ni is not None and equity_avg not in (None, 0) else None
+        roe = ni / equity_avg if ni is not None and equity_avg is not None and equity_avg > 0 else None
         gross_margin = gp / revenue if gp is not None and revenue else ((revenue-cogs)/revenue if revenue and cogs is not None else None)
         op_margin = ebit / revenue if ebit is not None and revenue else None
         net_margin = ni / revenue if ni is not None and revenue else None
@@ -171,6 +170,8 @@ def financial_quality(rows: list[dict[str, Any]]) -> list[dict[str, Any]]:
             warnings.append("Working-capital days use ending-balance proxies; average balances are preferred.")
         if equity_basis == "ending_balance_proxy":
             warnings.append("ROE uses ending equity as a proxy; average equity is preferred.")
+        if equity_avg is not None and equity_avg <= 0:
+            warnings.append("ROE suppressed because average common equity is non-positive; use operating returns and capital-structure analysis instead.")
         if roic is None:
             warnings.append("ROIC unavailable: provide EBIT, normalized_tax_rate and positive average_invested_capital.")
         if fcf is not None and sbc is None:
